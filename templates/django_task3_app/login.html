@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogIn</title>
+</head>
+<body>
+<h3>Login Page</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}} </br>
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+</body>
+</html>
+{% endblock %}

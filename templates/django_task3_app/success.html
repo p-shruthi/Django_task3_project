@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ {% extends 'base.html' %}
+
+ {% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h4>Congratulations! You're signed in.</h4>
+<li>
+    <small>
+    <a href="{% url 'createblog' %}" class ="btn" >CreateBlog</a>
+    </small>
+</li>
+
+<table>
+    <tbody>
+        {% for blog in blog_list %}
+        <tr>
+            <td>Blog Header : {{blog.blogheader}}</td> </tr>
+        <td>Blog Name : {{blog.blog}}</td> </tr>
+            <td>
+                <li>
+                <small>
+                    <a href="{% url 'updateblog' blog.id %}">(Edit)</a>
+                </small>
+                </li>
+            </td>
+
+            <td>
+                <li>
+                <small>
+                <a href="{% url 'deleteblog' blog.id %}">(Delete)</a>
+                </small>
+                </li>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<li>
+    <small>
+    <a href="{% url 'logout' %}" class ="btn" >Logout</a>
+    </small>
+</li>
+</body>
+</html>
+{% endblock %}

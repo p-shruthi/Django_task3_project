@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ {% extends 'base.html' %}
+
+ {% block content %}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+
+<h1>Create your blog</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+
+</body>
+</html>
+{% endblock %}
